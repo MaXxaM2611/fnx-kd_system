@@ -59,7 +59,7 @@ AddEventHandler("fnx-kd_system:spawnPed", function()
     MySQL.Async.fetchAll('SELECT * FROM fnx_kd WHERE identifier = @identifier', {
         ['@identifier'] = identifier
     }, function(result) 
-        if #result > 0 then
+        if result and #result > 0 then
             if result[1].data then
                local table =  json.decode(result[1].data)
                Kd[identifier] = {
